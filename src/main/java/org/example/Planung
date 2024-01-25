@@ -1,0 +1,10 @@
+2D-Spielfeld:
+
+- Spielfigur
+    Bewegung über wasd
+    w nach oben
+    s nach unten
+    a nach links
+    d nach rechts.
+- Spielfigurhat eine Position.
+    die Position soll sich bei der Bewegung verändern.

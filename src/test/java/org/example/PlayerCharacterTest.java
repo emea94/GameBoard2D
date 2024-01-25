@@ -3,41 +3,64 @@ package org.example;
 import org.junit.jupiter.api.Test;
 
 import static org.example.PlayerCharacter.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerCharacterTest {
 
     @Test
-    void getX_whenGameStarts_thenPlayerPositionedInTheMiddleOfField() {
-        int expected = 0;
-        int actual = PlayerCharacter.getX();
-        assertEquals(0, actual);
-    }
+    void gameStart_whenGameStart_CharacterPosition00() {
+        int[] expected = {0,0};
 
-    @Test
-    void getY_returnsValue0() {
-        int expected = 0;
-        int actual = PlayerCharacter.getY();
-        assertEquals(0, actual);
+        gameStart();
+
+        int[] actual = {PlayerCharacter.getX(), PlayerCharacter.getY()};
+
+        assertArrayEquals(expected, actual);
     }
 
     @Test
     void move_whenWIsCalled_ThenGameCharacterMovesOnePositionUp() {
         char caller = 'w';
-        int y = 0;
-        int expected = y + 1;
-        int actual = PlayerCharacter.move(caller);
+        int expected = PlayerCharacter.getY() + 1;
+
+        PlayerCharacter.move(caller);
+        int actual = PlayerCharacter.getY();
+
         assertEquals(expected, actual);
     }
 
     @Test
-    void move_whenAIsCalled_ThenGameCharacterMovesOnePositionLeft() {
-        char caller = 'a';
-        int x = 0;
-        int expected = x - 1;
-        int actual = PlayerCharacter.move(caller);
+    void move_whenSIsCalled_ThenGameCharacterMovesOnePositionDown() {
+        char caller = 's';
+        int expected = PlayerCharacter.getY() - 1;
+
+        PlayerCharacter.move(caller);
+        int actual = PlayerCharacter.getY();
+
         assertEquals(expected, actual);
     }
+    @Test
+    void move_whenAIsCalled_ThenGameCharacterMovesOnePositionLeft() {
+        char caller = 'a';
+        int expected = PlayerCharacter.getX() - 1;
+
+        PlayerCharacter.move(caller);
+        int actual = PlayerCharacter.getX();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void move_whenDIsCalled_ThenGameCharacterMovesOnePositionRight() {
+        char caller = 'd';
+        int expected = PlayerCharacter.getX() + 1;
+
+        PlayerCharacter.move(caller);
+        int actual = PlayerCharacter.getX();
+
+        assertEquals(expected, actual);
+    }
+
 
 
 
