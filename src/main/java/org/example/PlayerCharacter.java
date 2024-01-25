@@ -15,5 +15,7 @@ public class PlayerCharacter {
     }
 
     public static int move(char caller) {
+        int y = getY();
+        return caller == 'w' ? y + 1 : 0;
     }
 }
