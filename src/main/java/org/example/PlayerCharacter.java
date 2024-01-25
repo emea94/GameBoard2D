@@ -1,10 +1,19 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class PlayerCharacter {
     static int characterPositionY = 0;
     static int characterPositionX = 0;
     public static void main(String[] args) {
-
+        Scanner playerMove = new Scanner(System.in);
+        while(true) {
+            System.out.println("Press wasd to move.");
+            char input = playerMove.next().charAt(0);
+            if(input == 'q') break;
+            move(input);
+            System.out.format("[%3d]  [%3d]\n", characterPositionX, characterPositionY);
+        }
         System.out.println("Hello world!");
     }
 
