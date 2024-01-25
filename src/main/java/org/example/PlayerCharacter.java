@@ -16,8 +16,9 @@ public class PlayerCharacter {
         return y;
     }
 
-    public static int move(char caller) {
-        y = caller=='w' ? ++y: 0;
-        return getY();
+    public static void move(char caller) {
+        if(caller=='w'){
+            y++;
+        }
     }
 }

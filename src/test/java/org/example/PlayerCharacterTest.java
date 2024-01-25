@@ -30,5 +30,15 @@ class PlayerCharacterTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void move_whenAIsCalled_ThenGameCharacterMovesOnePositionLeft() {
+        char caller = 'a';
+        int x = 0;
+        int expected = x - 1;
+        int actual = PlayerCharacter.move(caller);
+        assertEquals(expected, actual);
+    }
+
+
 
 }
