@@ -1,21 +1,23 @@
 package org.example;
 
 public class PlayerCharacter {
+    static int y = 0;
+    static  int x = 0;
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
     }
 
     public static int getX() {
-        return 0;
+        return x;
     }
 
     public static int getY() {
-        return 0;
+        return y;
     }
 
     public static int move(char caller) {
-        int y = getY();
-        return caller == 'w' ? y + 1 : 0;
+        y = caller=='w' ? ++y: 0;
+        return getY();
     }
 }
